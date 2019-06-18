@@ -31,16 +31,16 @@ namespace ParticleTest
             
         }
 
-        public bool isAlive()
+        public bool isAlive(int liveTime)
         {
-            return timeToLive.AddSeconds(3) > DateTime.UtcNow;
+            return timeToLive.AddMilliseconds(liveTime) >= DateTime.UtcNow;
         }
        
 
         public void moveParticle()
         {
             pLocation = new PointF(pLocation.X + pVector.X, pLocation.Y + pVector.Y);
-            //pVector = new PointF(pVector.X*.98f, pVector.Y * .98f);
+            pVector = new PointF(pVector.X*.97f, pVector.Y * .97f);
         }
 
         public void drawParticle(Graphics g)

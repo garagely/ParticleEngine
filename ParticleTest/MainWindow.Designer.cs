@@ -42,6 +42,8 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.particleTimer = new System.Windows.Forms.Timer(this.components);
             this.panMain = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtLiveTime = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +51,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
+            this.panel1.Controls.Add(this.txtLiveTime);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pbColor);
             this.panel1.Controls.Add(this.txtMassUpper);
             this.panel1.Controls.Add(this.label5);
@@ -80,7 +84,7 @@
             this.txtMassUpper.Name = "txtMassUpper";
             this.txtMassUpper.Size = new System.Drawing.Size(51, 20);
             this.txtMassUpper.TabIndex = 9;
-            this.txtMassUpper.Text = "10";
+            this.txtMassUpper.Text = "15";
             // 
             // label5
             // 
@@ -120,14 +124,14 @@
             this.txtMassLower.Name = "txtMassLower";
             this.txtMassLower.Size = new System.Drawing.Size(51, 20);
             this.txtMassLower.TabIndex = 4;
-            this.txtMassLower.Text = "10";
+            this.txtMassLower.Text = "5";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(239, 41);
+            this.label2.Location = new System.Drawing.Point(281, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 3;
@@ -135,7 +139,7 @@
             // 
             // txtForce
             // 
-            this.txtForce.Location = new System.Drawing.Point(283, 38);
+            this.txtForce.Location = new System.Drawing.Point(325, 38);
             this.txtForce.Name = "txtForce";
             this.txtForce.Size = new System.Drawing.Size(51, 20);
             this.txtForce.TabIndex = 2;
@@ -146,7 +150,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(64, 15);
+            this.label1.Location = new System.Drawing.Point(100, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 1;
@@ -154,7 +158,7 @@
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(123, 12);
+            this.txtAmount.Location = new System.Drawing.Point(159, 12);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(51, 20);
             this.txtAmount.TabIndex = 0;
@@ -175,6 +179,25 @@
             this.panMain.TabIndex = 1;
             this.panMain.Paint += new System.Windows.Forms.PaintEventHandler(this.PanMain_Paint);
             this.panMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanMain_MouseDown);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(19, 41);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(134, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Live Time (milliseconds):";
+            // 
+            // txtLiveTime
+            // 
+            this.txtLiveTime.Location = new System.Drawing.Point(159, 38);
+            this.txtLiveTime.Name = "txtLiveTime";
+            this.txtLiveTime.Size = new System.Drawing.Size(51, 20);
+            this.txtLiveTime.TabIndex = 12;
+            this.txtLiveTime.Text = "4000";
             // 
             // MainWindow
             // 
@@ -207,6 +230,8 @@
         private System.Windows.Forms.TextBox txtMassUpper;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pbColor;
+        private System.Windows.Forms.TextBox txtLiveTime;
+        private System.Windows.Forms.Label label4;
     }
 }
 

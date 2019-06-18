@@ -30,7 +30,7 @@ namespace ParticleTest
         {
             foreach (Particle p in listParticles)
             {
-                if (!p.isAlive())
+                if (!p.isAlive(int.Parse(txtLiveTime.Text)))
                 {
                     listRemoveParticles.Add(p);
                 }
