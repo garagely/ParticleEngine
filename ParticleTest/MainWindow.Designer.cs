@@ -30,6 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtSpeedDecay = new System.Windows.Forms.TextBox();
+            this.txtDensityUpper = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDensityLower = new System.Windows.Forms.TextBox();
             this.txtLiveTime = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pbColor = new System.Windows.Forms.PictureBox();
@@ -43,13 +49,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.particleTimer = new System.Windows.Forms.Timer(this.components);
-            this.panMain = new System.Windows.Forms.Panel();
-            this.txtDensityUpper = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtDensityLower = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtSpeedDecay = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +79,63 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1153, 75);
             this.panel1.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(642, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(154, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Speed Decay (1 is no decay):";
+            // 
+            // txtSpeedDecay
+            // 
+            this.txtSpeedDecay.Location = new System.Drawing.Point(802, 12);
+            this.txtSpeedDecay.Name = "txtSpeedDecay";
+            this.txtSpeedDecay.Size = new System.Drawing.Size(51, 20);
+            this.txtSpeedDecay.TabIndex = 17;
+            this.txtSpeedDecay.Text = "1";
+            // 
+            // txtDensityUpper
+            // 
+            this.txtDensityUpper.Location = new System.Drawing.Point(444, 42);
+            this.txtDensityUpper.Name = "txtDensityUpper";
+            this.txtDensityUpper.Size = new System.Drawing.Size(51, 20);
+            this.txtDensityUpper.TabIndex = 16;
+            this.txtDensityUpper.Text = "5";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(391, 45);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "(Upper)";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(239, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Density: (Lower)";
+            // 
+            // txtDensityLower
+            // 
+            this.txtDensityLower.Location = new System.Drawing.Point(334, 42);
+            this.txtDensityLower.Name = "txtDensityLower";
+            this.txtDensityLower.Size = new System.Drawing.Size(51, 20);
+            this.txtDensityLower.TabIndex = 13;
+            this.txtDensityLower.Text = "5";
             // 
             // txtLiveTime
             // 
@@ -174,7 +230,7 @@
             this.txtForce.Name = "txtForce";
             this.txtForce.Size = new System.Drawing.Size(51, 20);
             this.txtForce.TabIndex = 2;
-            this.txtForce.Text = "50";
+            this.txtForce.Text = "100";
             // 
             // label1
             // 
@@ -201,82 +257,17 @@
             this.particleTimer.Interval = 25;
             this.particleTimer.Tick += new System.EventHandler(this.ParticleTimer_Tick);
             // 
-            // panMain
-            // 
-            this.panMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panMain.Location = new System.Drawing.Point(0, 75);
-            this.panMain.Name = "panMain";
-            this.panMain.Size = new System.Drawing.Size(1153, 620);
-            this.panMain.TabIndex = 1;
-            this.panMain.Paint += new System.Windows.Forms.PaintEventHandler(this.PanMain_Paint);
-            this.panMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanMain_MouseDown);
-            // 
-            // txtDensityUpper
-            // 
-            this.txtDensityUpper.Location = new System.Drawing.Point(444, 42);
-            this.txtDensityUpper.Name = "txtDensityUpper";
-            this.txtDensityUpper.Size = new System.Drawing.Size(51, 20);
-            this.txtDensityUpper.TabIndex = 16;
-            this.txtDensityUpper.Text = "5";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(391, 45);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "(Upper)";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(239, 45);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Density: (Lower)";
-            // 
-            // txtDensityLower
-            // 
-            this.txtDensityLower.Location = new System.Drawing.Point(334, 42);
-            this.txtDensityLower.Name = "txtDensityLower";
-            this.txtDensityLower.Size = new System.Drawing.Size(51, 20);
-            this.txtDensityLower.TabIndex = 13;
-            this.txtDensityLower.Text = "5";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(642, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(154, 13);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Speed Decay (1 is no decay):";
-            // 
-            // txtSpeedDecay
-            // 
-            this.txtSpeedDecay.Location = new System.Drawing.Point(802, 12);
-            this.txtSpeedDecay.Name = "txtSpeedDecay";
-            this.txtSpeedDecay.Size = new System.Drawing.Size(51, 20);
-            this.txtSpeedDecay.TabIndex = 17;
-            this.txtSpeedDecay.Text = "1";
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 695);
-            this.Controls.Add(this.panMain);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "MainWindow";
             this.Text = "Particle Engine";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.mainWindowPaint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainWindowMouseDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).EndInit();
@@ -289,7 +280,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.Timer particleTimer;
-        private System.Windows.Forms.Panel panMain;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtVolumeLower;

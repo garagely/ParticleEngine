@@ -11,7 +11,6 @@ namespace ParticleTest
 {
     public partial class MainWindow : Form
     {
-        
 
         List<Particle> listParticles = new List<Particle>();
         List<Particle> listRemoveParticles = new List<Particle>();
@@ -23,10 +22,9 @@ namespace ParticleTest
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
-        private void PanMain_Paint(object sender, PaintEventArgs e)
+        private void mainWindowPaint(object sender, PaintEventArgs e)
         {
             foreach (Particle p in listParticles)
             {
@@ -46,7 +44,7 @@ namespace ParticleTest
 
         }
 
-        private void PanMain_MouseDown(object sender, MouseEventArgs e)
+        private void mainWindowMouseDown(object sender, MouseEventArgs e)
         {
 
             if (int.Parse(txtVolumeLower.Text) > int.Parse(txtVolumeUpper.Text))
@@ -77,9 +75,7 @@ namespace ParticleTest
                     listParticles.Add(part);
 
                 }
-            }
-            
-            
+            }     
         }
 
 
@@ -89,7 +85,7 @@ namespace ParticleTest
             {
                 p.moveParticle();
             }
-            panMain.Invalidate();
+            this.Invalidate();
         }
 
         private void btnColorOnClick(object sender, EventArgs e)
