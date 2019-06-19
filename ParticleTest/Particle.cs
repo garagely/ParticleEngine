@@ -13,17 +13,23 @@ namespace ParticleTest
         private PointF pVector;
         private float dblAcceleration;
         private int intMass;
+        private int intDensity;
+        private int intVolume;
         private double dblForce;
+        private float fltDecayRate;
         private Color color;
         private Random random;
         private DateTime timeToLive;
 
-        public Particle(PointF lPointF, int mass, double force, Random random, Color color)
+        public Particle(PointF lPointF, double force, Random random, Color color, int volume, int density, float decayRate)
         {
             this.random = random;
             this.pLocation = lPointF;
-            this.intMass = mass;
+            this.intVolume = volume;
+            this.intDensity = density;
+            this.intMass = getMass(); ;
             this.dblForce = force;
+            this.fltDecayRate = decayRate;
             this.dblAcceleration = getSpeed();
             this.pVector = this.randomVector();
             this.color = color;
@@ -38,14 +44,14 @@ namespace ParticleTest
        
 
         public void moveParticle()
-        {
+        {      
             pLocation = new PointF(pLocation.X + pVector.X, pLocation.Y + pVector.Y);
-            pVector = new PointF(pVector.X*.97f, pVector.Y * .97f);
+            pVector = new PointF(pVector.X*fltDecayRate, pVector.Y * fltDecayRate);
         }
 
         public void drawParticle(Graphics g)
         {
-            g.FillRectangle(new SolidBrush(color), pLocation.X-(intMass/2), pLocation.Y- (intMass / 2), intMass, intMass);
+            g.FillRectangle(new SolidBrush(color), pLocation.X-(intVolume/2), pLocation.Y- (intVolume / 2), intVolume, intVolume);
         }
 
         public PointF randomVector()
@@ -57,6 +63,11 @@ namespace ParticleTest
         private float getSpeed()
         {
             return (float)(this.dblForce / intMass);
+        }
+
+        private int getMass()
+        {
+            return intVolume * intDensity;
         }
     }
 }

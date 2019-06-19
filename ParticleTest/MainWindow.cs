@@ -49,22 +49,31 @@ namespace ParticleTest
         private void PanMain_MouseDown(object sender, MouseEventArgs e)
         {
 
-            if (int.Parse(txtMassLower.Text) > int.Parse(txtMassUpper.Text))
+            if (int.Parse(txtVolumeLower.Text) > int.Parse(txtVolumeUpper.Text))
             {
-                MessageBox.Show("Lower bound for mass cannot be higher than upper bound.","Mass Error" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lower bound for volume cannot be higher than upper bound.","Mass Error"
+                    ,MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(int.Parse(txtDensityLower.Text) > int.Parse(txtDensityUpper.Text))
+            {
+                MessageBox.Show("Lower bound for density cannot be higher than upper bound.", "Mass Error"
+                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 int intAmount = int.Parse(txtAmount.Text);
-                int intMass;
+                int intVolume;
+                int intDensity;
+                float fltSpeedDecay = float.Parse(txtSpeedDecay.Text);
                 double dblForce = double.Parse(txtForce.Text);
                 PointF p;
 
                 for (int i = 0; i < intAmount; i++)
                 {
                     p = new PointF(e.Location.X, e.Location.Y);
-                    intMass = random.Next(int.Parse(txtMassLower.Text), int.Parse(txtMassUpper.Text));
-                    Particle part = new Particle(p, intMass, dblForce, random, color);
+                    intVolume = random.Next(int.Parse(txtVolumeLower.Text), int.Parse(txtVolumeUpper.Text));
+                    intDensity = random.Next(int.Parse(txtDensityLower.Text), int.Parse(txtDensityUpper.Text));
+                    Particle part = new Particle(p, dblForce, random, color, intVolume, intDensity, fltSpeedDecay);
                     listParticles.Add(part);
 
                 }
