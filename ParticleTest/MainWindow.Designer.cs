@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.particleTimer = new System.Windows.Forms.Timer(this.components);
+            this.chkFadeOut = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +57,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
+            this.panel1.Controls.Add(this.chkFadeOut);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtSpeedDecay);
             this.panel1.Controls.Add(this.txtDensityUpper);
@@ -257,6 +259,18 @@
             this.particleTimer.Interval = 25;
             this.particleTimer.Tick += new System.EventHandler(this.ParticleTimer_Tick);
             // 
+            // chkFadeOut
+            // 
+            this.chkFadeOut.AutoSize = true;
+            this.chkFadeOut.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFadeOut.ForeColor = System.Drawing.Color.White;
+            this.chkFadeOut.Location = new System.Drawing.Point(1007, 44);
+            this.chkFadeOut.Name = "chkFadeOut";
+            this.chkFadeOut.Size = new System.Drawing.Size(73, 17);
+            this.chkFadeOut.TabIndex = 19;
+            this.chkFadeOut.Text = "Fade Out";
+            this.chkFadeOut.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,6 +311,7 @@
         private System.Windows.Forms.TextBox txtDensityLower;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtSpeedDecay;
+        private System.Windows.Forms.CheckBox chkFadeOut;
     }
 }
 

@@ -20,8 +20,10 @@ namespace ParticleTest
         private Color color;
         private Random random;
         private DateTime timeToLive;
+        private int alpha = 255;
+        private bool bolFade;
 
-        public Particle(PointF lPointF, double force, Random random, Color color, int volume, int density, float decayRate)
+        public Particle(PointF lPointF, double force, Random random, Color color, int volume, int density, float decayRate, bool fade)
         {
             this.random = random;
             this.pLocation = lPointF;
@@ -34,6 +36,7 @@ namespace ParticleTest
             this.pVector = this.randomVector();
             this.color = color;
             this.timeToLive = DateTime.UtcNow;
+            this.bolFade = fade;
             
         }
 
@@ -44,9 +47,20 @@ namespace ParticleTest
        
 
         public void moveParticle()
-        {      
+        {
+            if (bolFade)
+            {
+                alpha -= 5;
+                if (alpha < 0)
+                {
+                    alpha = 0;
+                }
+            }
+          
+            
             pLocation = new PointF(pLocation.X + pVector.X, pLocation.Y + pVector.Y);
             pVector = new PointF(pVector.X*fltDecayRate, pVector.Y * fltDecayRate);
+            color = Color.FromArgb(alpha, color);
         }
 
         public void drawParticle(Graphics g)

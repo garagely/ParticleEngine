@@ -65,13 +65,22 @@ namespace ParticleTest
                 float fltSpeedDecay = float.Parse(txtSpeedDecay.Text);
                 double dblForce = double.Parse(txtForce.Text);
                 PointF p;
+                bool fade;
+                if(chkFadeOut.Checked == true)
+                {
+                    fade = true;
+                }
+                else
+                {
+                    fade = false;
+                }
 
                 for (int i = 0; i < intAmount; i++)
                 {
                     p = new PointF(e.Location.X, e.Location.Y);
                     intVolume = random.Next(int.Parse(txtVolumeLower.Text), int.Parse(txtVolumeUpper.Text));
                     intDensity = random.Next(int.Parse(txtDensityLower.Text), int.Parse(txtDensityUpper.Text));
-                    Particle part = new Particle(p, dblForce, random, color, intVolume, intDensity, fltSpeedDecay);
+                    Particle part = new Particle(p, dblForce, random, color, intVolume, intDensity, fltSpeedDecay, fade);
                     listParticles.Add(part);
 
                 }
