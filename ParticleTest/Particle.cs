@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ParticleTest
 {
-    class Particle
+    class Particle 
     {
         private PointF pLocation;
         private PointF pVector;
@@ -40,6 +40,7 @@ namespace ParticleTest
             
         }
 
+
         public bool isAlive(int liveTime)
         {
             return timeToLive.AddMilliseconds(liveTime) >= DateTime.UtcNow;
@@ -65,10 +66,11 @@ namespace ParticleTest
 
         public void drawParticle(Graphics g)
         {
-            g.FillRectangle(new SolidBrush(color), pLocation.X-(intVolume/2), pLocation.Y- (intVolume / 2), intVolume, intVolume);
+            g.FillRectangle(new SolidBrush(color), pLocation.X-(intVolume/2), pLocation.Y- (intVolume / 2),
+                intVolume, intVolume);
         }
 
-        public PointF randomVector()
+        private PointF randomVector()
         {
             float angle = (float)(random.NextDouble()*(Math.PI*2));
             return new PointF((float)(Math.Cos(angle)*dblAcceleration),(float)(Math.Sin(angle))*dblAcceleration);

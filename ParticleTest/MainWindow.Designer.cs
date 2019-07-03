@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkFadeOut = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSpeedDecay = new System.Windows.Forms.TextBox();
             this.txtDensityUpper = new System.Windows.Forms.TextBox();
@@ -49,7 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.particleTimer = new System.Windows.Forms.Timer(this.components);
-            this.chkFadeOut = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +81,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1153, 75);
             this.panel1.TabIndex = 0;
+            // 
+            // chkFadeOut
+            // 
+            this.chkFadeOut.AutoSize = true;
+            this.chkFadeOut.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFadeOut.ForeColor = System.Drawing.Color.White;
+            this.chkFadeOut.Location = new System.Drawing.Point(1007, 44);
+            this.chkFadeOut.Name = "chkFadeOut";
+            this.chkFadeOut.Size = new System.Drawing.Size(73, 17);
+            this.chkFadeOut.TabIndex = 19;
+            this.chkFadeOut.Text = "Fade Out";
+            this.chkFadeOut.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -258,18 +270,6 @@
             this.particleTimer.Enabled = true;
             this.particleTimer.Interval = 25;
             this.particleTimer.Tick += new System.EventHandler(this.ParticleTimer_Tick);
-            // 
-            // chkFadeOut
-            // 
-            this.chkFadeOut.AutoSize = true;
-            this.chkFadeOut.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkFadeOut.ForeColor = System.Drawing.Color.White;
-            this.chkFadeOut.Location = new System.Drawing.Point(1007, 44);
-            this.chkFadeOut.Name = "chkFadeOut";
-            this.chkFadeOut.Size = new System.Drawing.Size(73, 17);
-            this.chkFadeOut.TabIndex = 19;
-            this.chkFadeOut.Text = "Fade Out";
-            this.chkFadeOut.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
