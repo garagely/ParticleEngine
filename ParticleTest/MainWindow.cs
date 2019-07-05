@@ -21,22 +21,21 @@ namespace ParticleTest
         Color color = Color.Blue;
         TimeSpan timeSpan = new TimeSpan(0);
 
+        int spreadAngle = 360;
+        int directionAngle = 360;
 
-        Pen pen = new Pen(Color.Black);
-        Rectangle wall = new Rectangle(new Point(700,100),new Size(20,900) );
+
+        SolidBrush brush = new SolidBrush(Color.Black);
+        Rectangle wall = new Rectangle(new Point(700,50),new Size(20,900) );
 
         public MainWindow()
         {
-            
             InitializeComponent();
-
-           
-
         }
 
         private void mainWindowPaint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawRectangle(pen,wall);
+            e.Graphics.FillRectangle(brush,wall);
 
             foreach (Particle p in listParticles)
             {
@@ -56,12 +55,7 @@ namespace ParticleTest
                 if (pr.isColliding(wall))
                 {
                     listRemoveProjectiles.Add(pr);
-                    for (int x = 0; x<10; x++)
-                    {
-                        Particle particle = new Particle(new PointF(pr.PLocation.X, pr.PLocation.Y),100, random, Color.Crimson,
-                            5, 5, 1, false);
-                        listParticles.Add(particle);
-                    }
+                    particleBoom(new PointF((int)pr.PLocation.X+20,(int)pr.PLocation.Y+5));
                     
                 }
                 else
@@ -101,37 +95,13 @@ namespace ParticleTest
             {
                 if(e.Button == MouseButtons.Right)
                 {
-                    int intAmount = int.Parse(txtAmount.Text);
-                    int intVolume;
-                    int intDensity;
-                    float fltSpeedDecay = float.Parse(txtSpeedDecay.Text);
-                    double dblForce = double.Parse(txtForce.Text);
-                    
-                    bool fade;
-                    if (chkFadeOut.Checked == true)
-                    {
-                        fade = true;
-                    }
-                    else
-                    {
-                        fade = false;
-                    }
-
-                    for (int i = 0; i < intAmount; i++)
-                    {
-                        
-                        intVolume = random.Next(int.Parse(txtVolumeLower.Text), int.Parse(txtVolumeUpper.Text));
-                        intDensity = random.Next(int.Parse(txtDensityLower.Text), int.Parse(txtDensityUpper.Text));
-                        Particle part = new Particle(p, dblForce, random, color, intVolume, intDensity, fltSpeedDecay, fade);
-                        listParticles.Add(part);
-
-                    }
+                    particleBoom(p);
                 }
                 if(e.Button == MouseButtons.Left)
                 {
                     Debug.WriteLine("Projectile created");
                     
-                    Projectile projectile = new Projectile(p, 10f);
+                    Projectile projectile = new Projectile(p);
                     listProjectiles.Add(projectile);
                 }
                 
@@ -139,9 +109,39 @@ namespace ParticleTest
         }
 
 
+        private void particleBoom(PointF pointF)
+        {
+            int intAmount = int.Parse(txtAmount.Text);
+            int intVolume;
+            int intDensity;
+            float fltSpeedDecay = float.Parse(txtSpeedDecay.Text);
+            double dblForce = double.Parse(txtForce.Text);
+
+            bool fade;
+            if (chkFadeOut.Checked)
+            {
+                fade = true;
+            }
+            else
+            {
+                fade = false;
+            }
+
+            for (int i = 0; i < intAmount; i++)
+            {
+
+                intVolume = random.Next(int.Parse(txtVolumeLower.Text), int.Parse(txtVolumeUpper.Text));
+                intDensity = random.Next(int.Parse(txtDensityLower.Text), int.Parse(txtDensityUpper.Text));
+                Particle part = new Particle(pointF, dblForce, random, color, intVolume, intDensity, fltSpeedDecay,
+                    fade, spreadAngle, directionAngle);
+                listParticles.Add(part);
+
+            }
+        }
 
 
-        private void ParticleTimer_Tick(object sender, EventArgs e)
+
+        private void particleTimerTick(object sender, EventArgs e)
         {
             foreach (Particle p in listParticles)
             {
@@ -166,6 +166,17 @@ namespace ParticleTest
                 pbColor.BackColor = colorDialog.Color;
                 color = colorDialog.Color;
 
+            }
+        }
+
+        private void showSpreadAdjust(object sender, EventArgs e)
+        {
+            SpreadForm spreadForm = new SpreadForm(spreadAngle, directionAngle);
+            DialogResult result = spreadForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                spreadAngle = spreadForm.spreadAngle;
+                directionAngle = spreadForm.directionAngle;
             }
         }
     }

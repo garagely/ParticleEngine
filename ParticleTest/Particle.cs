@@ -23,21 +23,29 @@ namespace ParticleTest
         private int alpha = 255;
         private bool bolFade;
 
-        public Particle(PointF lPointF, double force, Random random, Color color, int volume, int density, float decayRate, bool fade)
+        private int intSpreadZone;
+        private int intSpreadDirection;
+
+
+        public Particle(PointF lPointF, double force, Random random, Color color,
+            int volume, int density, float decayRate, bool fade, int spreadZone, int spreadDirection)
         {
             this.random = random;
-            this.pLocation = lPointF;
-            this.intVolume = volume;
-            this.intDensity = density;
-            this.intMass = getMass(); ;
-            this.dblForce = force;
-            this.fltDecayRate = decayRate;
-            this.dblAcceleration = getSpeed();
-            this.pVector = this.randomVector();
+            pLocation = lPointF;
+            intVolume = volume;
+            intDensity = density;
+            intMass = getMass(); ;
+            dblForce = force;
+            fltDecayRate = decayRate;
+            dblAcceleration = getSpeed();
+            intSpreadZone = spreadZone;
+            intSpreadDirection = spreadDirection;
+            pVector = randomVector();
             this.color = color;
-            this.timeToLive = DateTime.UtcNow;
-            this.bolFade = fade;
+            timeToLive = DateTime.UtcNow;
+            bolFade = fade;
             
+
         }
 
 
@@ -72,13 +80,19 @@ namespace ParticleTest
 
         private PointF randomVector()
         {
-            float angle = (float)(random.NextDouble()*(Math.PI*2));
+            
+            double spreadZone = intSpreadZone * Math.PI / 180;
+
+            
+            double zoneAngle = intSpreadDirection * Math.PI / 180;
+
+            float angle = (float)(random.NextDouble()*(spreadZone)+zoneAngle);
             return new PointF((float)(Math.Cos(angle)*dblAcceleration),(float)(Math.Sin(angle))*dblAcceleration);
         }
 
         private float getSpeed()
         {
-            return (float)(this.dblForce / intMass);
+            return (float)(dblForce / intMass);
         }
 
         private int getMass()

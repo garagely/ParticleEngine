@@ -19,11 +19,20 @@ namespace ParticleTest
 
         public Projectile(PointF pLocation, float fSpeed)
         {
-            this.PLocation = pLocation;
+            PLocation = pLocation;
             this.fSpeed = fSpeed;
-            this.pSize = new Point(20,10);
-            this.color = Color.Black;
-            this.hitBox = new Rectangle((int)pLocation.X, (int)pLocation.Y, pSize.X, pSize.Y);
+            pSize = new Point(20,10);
+            color = Color.Black;
+            hitBox = new Rectangle((int)pLocation.X, (int)pLocation.Y, pSize.X, pSize.Y);
+        }
+
+        public Projectile(PointF pLocation)
+        {
+            PLocation = pLocation;
+            fSpeed = 40f;
+            pSize = new Point(20, 10);
+            color = Color.Black;
+            hitBox = new Rectangle((int)pLocation.X, (int)pLocation.Y, pSize.X, pSize.Y);
         }
 
         public void drawProjectile(Graphics g)

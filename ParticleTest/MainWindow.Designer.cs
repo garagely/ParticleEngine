@@ -50,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.particleTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnSpread = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +58,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
+            this.panel1.Controls.Add(this.btnSpread);
             this.panel1.Controls.Add(this.chkFadeOut);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtSpeedDecay);
@@ -268,8 +270,18 @@
             // particleTimer
             // 
             this.particleTimer.Enabled = true;
-            this.particleTimer.Interval = 25;
-            this.particleTimer.Tick += new System.EventHandler(this.ParticleTimer_Tick);
+            this.particleTimer.Interval = 8;
+            this.particleTimer.Tick += new System.EventHandler(this.particleTimerTick);
+            // 
+            // btnSpread
+            // 
+            this.btnSpread.Location = new System.Drawing.Point(914, 12);
+            this.btnSpread.Name = "btnSpread";
+            this.btnSpread.Size = new System.Drawing.Size(75, 23);
+            this.btnSpread.TabIndex = 20;
+            this.btnSpread.Text = "Spread";
+            this.btnSpread.UseVisualStyleBackColor = true;
+            this.btnSpread.Click += new System.EventHandler(this.showSpreadAdjust);
             // 
             // MainWindow
             // 
@@ -312,6 +324,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtSpeedDecay;
         private System.Windows.Forms.CheckBox chkFadeOut;
+        private System.Windows.Forms.Button btnSpread;
     }
 }
 
